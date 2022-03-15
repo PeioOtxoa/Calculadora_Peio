@@ -1,7 +1,21 @@
 package menu;
 import java.util.Scanner;
+
+/**
+ * 
+ * @author peio
+ *
+ */
+
 public class Menu {
     private static Scanner teclado = new Scanner(System.in);
+    
+    /**
+     * @author peio
+     * 
+     * @return devuelve un array con los valores introducidos por el usuario
+     */
+    
     
     public int[] pedirNumeros(){
         int[] ret = new int[2];
@@ -11,6 +25,14 @@ public class Menu {
         ret [1] = teclado.nextInt();
         return ret;
     }
+    
+    /**
+     * @author peio
+     * 
+     * @apiNote Le pide que tipo de operación quiere hacer
+     * 
+     * @return Devuelve el int con la operación seleccionada
+     */
     
     public String menuOpciones() {
         String ret = "";
@@ -23,6 +45,14 @@ public class Menu {
                 ));
                 return ret;
     }
+    
+    /**
+     * @author peio
+     * 
+     * @apiNote Pregunta a ver si quiere continuar trabajando
+     * 
+     * @return Devuelve el boolean true o false
+     */
     
     public boolean repetir(){
         boolean ret = false;

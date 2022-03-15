@@ -2,6 +2,14 @@ package principal;
 import menu.Menu;
 import operaciones.Operaciones;
 
+/**
+ * 
+ * @author peio
+ * 
+ * @apiNote Según la operación seleccionada ejecuta una operación o otra
+ *
+ */
+
 public class Calculadora{
     public static void main(String[] args) {   
         int resultado = 0;
@@ -15,24 +23,30 @@ public class Calculadora{
             operandos = menu.pedirNumeros();
             operacion = menu.menuOpciones();
             
-            if (operacion.equalsIgnoreCase("+")){
-                resultado = operaciones.sumar(operandos[0], operandos[1]);
-                System.out.println ("Resultado: " + resultado);
-            } else if (operacion.equalsIgnoreCase("-")){
-                resultado = operaciones.restar(operandos[0], operandos[1]);
-                System.out.println ("Resultado: " + resultado);
-            } else if (operacion.equalsIgnoreCase("*")){
-                resultado = operaciones.multiplicar(operandos[0], operandos[1]);
-                System.out.println ("Resultado: " + resultado);
-            } else if (operacion.equalsIgnoreCase("/")){
-                resultado = operaciones.dividir(operandos[0], operandos[1]);
-                System.out.println ("Resultado: " + resultado);
-            } else if (operacion.equalsIgnoreCase("%")){
-                resultado = operaciones.resto(operandos[0], operandos[1]);
-                System.out.println ("Resultado: " + resultado);
-            } else {
-                System.out.println ("Operación no válida");
+            try {
+            
+            	if (operacion.equalsIgnoreCase("+")){
+            		resultado = operaciones.sumar(operandos[0], operandos[1]);
+            		System.out.println ("Resultado: " + resultado);
+            	} else if (operacion.equalsIgnoreCase("-")){
+            		resultado = operaciones.restar(operandos[0], operandos[1]);
+            		System.out.println ("Resultado: " + resultado);
+            	} else if (operacion.equalsIgnoreCase("*")){
+            		resultado = operaciones.multiplicar(operandos[0], operandos[1]);
+            		System.out.println ("Resultado: " + resultado);
+            	} else if (operacion.equalsIgnoreCase("/")){
+            		resultado = operaciones.dividir(operandos[0], operandos[1]);
+            		System.out.println ("Resultado: " + resultado);
+            	} else if (operacion.equalsIgnoreCase("%")){
+            		resultado = operaciones.resto(operandos[0], operandos[1]);
+            		System.out.println ("Resultado: " + resultado);
+            	} else {
+            		System.out.println ("Operación no válida");
+            	}
+            }catch(ArithmeticException e) {
+        	System.out.println("Operaciones aritmeticas no validas "+ e.getMessage());
             }
         }   while (menu.repetir());
+        
     }
 }
